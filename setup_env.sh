@@ -10,4 +10,4 @@ conda env remove -n "$ENV_NAME" -y 2>/dev/null || true
 conda env create -f environment.yml
 
 echo "Environment '$ENV_NAME' created successfully."
-echo "Activate with:conda activate $ENV_NAME"
+echo "Activate with: conda activate $ENV_NAME"
