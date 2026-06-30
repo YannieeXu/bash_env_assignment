@@ -3,11 +3,12 @@ set -euo pipefail
 
 ENV_NAME="bash_env_ai"
 
-# Remove if exists
+export CONDA_YES_ACCEPT_TERMS_OF_SERVICE=true
+export CONDA_AUTO_UPDATE_CONDA=false
+
 conda env remove -n "$ENV_NAME" -y 2>/dev/null || true
 
-# Create from environment.yml
 conda env create -f environment.yml
 
-echo "Environment '"$ENV_NAME"' created successfully."
+echo "Environment '$ENV_NAME' created successfully."
 echo "Activate with: conda activate $ENV_NAME"

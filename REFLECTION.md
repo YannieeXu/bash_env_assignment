@@ -1,4 +1,4 @@
-# REFLECTION.md — Assignment 1
+# REFLECTION.md -- Assignment 1
 
 ## Environment file comparison
 
@@ -6,15 +6,19 @@ My manual env file used exact version pinning (`python=3.10`) and included sheba
 
 ## What the AI added that you forgot
 
-The AI didn't really add anything I forgot. My manual version already included everything needed. The AI's setup_env.sh had more descriptive comments, but functionally both scripts did the same thing.
+The AI didn't really add anything I forgot -- my manual version already included everything needed. The AI's setup_env.sh had more descriptive comments, but functionally both scripts did the same thing.
 
-## What the AI hallucinated
+## What the AI hallucinated (and what was fixed via iteration)
 
-The AI didn't invent any nonexistent packages or wrong version numbers, which was good. However, it omitted shebang lines from `hello.sh` and `hello.py`, so those scripts wouldn't run directly with `./hello.sh` on Unix-like systems without explicitly calling the interpreter. The `python>=3.10,<3.11` syntax also felt more like pip-style versioning than typical conda usage — conda conventionally uses `python=3.10` with a single equals sign.
+After testing the initial AI output, I found two issues that needed fixing:
+- Missing shebang lines in all three hello scripts (hello.sh, hello.py, hello.R)
+- Missing conda Terms of Service handling in setup_env.sh
+
+I iterated with the AI to add the missing shebangs and the `CONDA_YES_ACCEPT_TERMS_OF_SERVICE=true` environment variable. The AI did not invent any nonexistent packages or wrong version numbers.
 
 ## Did the AI's setup_env.sh actually run end-to-end on a clean shell?
 
-Yes, it ran successfully end-to-end. The environment was created and all packages (numpy, pandas, requests) installed without errors. The only caveat was that it didn't handle the conda Terms of Service prompt — on a completely fresh machine, the script would pause waiting for user input to accept the ToS before proceeding.
+The initial version ran successfully because I had already accepted the ToS earlier in the session. However, on a completely fresh machine it would have paused at the ToS prompt. After iterating with the AI, I added the ToS acceptance variable so the script now runs unattended.
 
 ## Time comparison
 
