@@ -22,8 +22,10 @@ The initial version ran successfully on my machine because I had already accepte
 
 ## Time comparison
 
-Part A manual: 60 minutes (including fixing the YAML syntax error on the first attempt and dealing with the conda ToS prompt)
-Part B AI-assisted: 30 minutes (AI generated the files instantly; only needed to run setup_env.sh to verify it worked)
+Part A manual: 60 minutes -- every character typed by hand, including debugging a YAML syntax error
+Part B AI-assisted: 30 minutes -- files generated instantly, most time spent testing and iterating fixes
+
+Key takeaway: AI was faster, but needed human review to catch omissions. The manual experience made those omissions obvious.
 
 ## Chat highlights from AI iteration
 
