@@ -2,11 +2,11 @@
 
 ## Environment file comparison
 
-My manual env file used exact version pinning (`python=3.10`) and included shebang lines (`#!/bin/bash`, `#!/usr/bin/env python3`). The AI version used range syntax (`python>=3.10,<3.11`) and omitted shebangs entirely. The environment names also differed: mine was `bash_env`, the AI's was `bash_env_ai`. Apart from these formatting differences, the actual package installs were identical.
+My manual env file used exact version pinning (`python=3.10`) and included shebang lines (`#!/bin/bash`, `#!/usr/bin/env python3`). The initial AI output used range syntax (`python>=3.10,<3.11`) and omitted shebangs, which I fixed during iteration. The environment names also differed: mine was `bash_env`, the AI's was `bash_env_ai`. Apart from these formatting differences, the actual package installs were identical.
 
 ## What the AI added that you forgot
 
-The AI didn't really add anything I forgot -- my manual version already included everything needed. The AI's setup_env.sh had more descriptive comments, but functionally both scripts did the same thing.
+The AI did not add anything I forgot -- my manual version already included everything needed. The AI's setup_env.sh had more descriptive comments and also added `CONDA_AUTO_UPDATE_CONDA=false`, but functionally both scripts did the same thing.
 
 ## What the AI hallucinated (and what was fixed via iteration)
 
@@ -18,7 +18,7 @@ I iterated with the AI to add the missing shebangs and the `CONDA_YES_ACCEPT_TER
 
 ## Did the AI's setup_env.sh actually run end-to-end on a clean shell?
 
-The initial version ran successfully because I had already accepted the ToS earlier in the session. However, on a completely fresh machine it would have paused at the ToS prompt. After iterating with the AI, I added the ToS acceptance variable so the script now runs unattended.
+The initial version ran successfully on my machine because I had already accepted the ToS earlier in the manual session. However, on a completely fresh machine it would have paused at the ToS prompt. After iterating with the AI, I added the ToS acceptance variable, so the script now runs unattended.
 
 ## Time comparison
 
