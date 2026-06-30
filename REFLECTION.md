@@ -25,6 +25,24 @@ The initial version ran successfully on my machine because I had already accepte
 Part A manual: 60 minutes (including fixing the YAML syntax error on the first attempt and dealing with the conda ToS prompt)
 Part B AI-assisted: 30 minutes (AI generated the files instantly; only needed to run setup_env.sh to verify it worked)
 
-## Prompts used in Part B
+## Chat highlights from AI iteration
 
+**Prompt 1** (initial generation):
 "I need a minimal Python+R+Bash project that prints Hello World from each language. Generate hello.sh, hello.py, hello.R, an environment.yml, a requirements.txt, and a setup_env.sh that builds the env. Pin reasonable versions."
+
+*AI generated all 6 files. Testing revealed missing shebangs and no ToS handling.*
+
+**Prompt 2** (fix shebangs):
+"The generated hello.sh and hello.py are missing shebang lines. Add #!/bin/bash to hello.sh and #!/usr/bin/env python3 to hello.py. Also add shebang to hello.R."
+
+*AI updated all three scripts with the correct shebangs.*
+
+**Prompt 3** (fix ToS handling):
+"The setup_env.sh fails on a fresh machine because newer conda versions require accepting the Terms of Service. Add export CONDA_YES_ACCEPT_TERMS_OF_SERVICE=true before the conda commands so the script can run unattended."
+
+*AI added the ToS environment variable and also included CONDA_AUTO_UPDATE_CONDA=false to prevent unwanted conda auto-updates.*
+
+**Prompt 4** (final verification):
+"Update the ai/ files with these fixes and verify setup_env.sh runs cleanly."
+
+*AI applied all changes. Final verification passed -- environment created successfully with all packages installed.*
