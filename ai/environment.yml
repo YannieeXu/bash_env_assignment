@@ -1,0 +1,8 @@
+name: bash_env_ai
+channels:
+  - defaults
+dependencies:
+  - python>=3.10,<3.11
+  - pip
+  - pip:
+    - -r requirements.txt
